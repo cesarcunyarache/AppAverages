@@ -91,6 +91,11 @@ public class Modulo3 extends Fragment {
                 String pa7 = ((EditText) view.findViewById(R.id.txtPa7)).getText().toString();
                 String ef = ((EditText) view.findViewById(R.id.txtExamenParcialIII)).getText().toString();
 
+                if (pa6.equalsIgnoreCase("") || pa7.equalsIgnoreCase("") || ef.equalsIgnoreCase("")) {
+                    Toast.makeText(requireContext(), "Uno o más campos vacios", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 prom3 = calcularPromedioUnidad3(
                         Double.parseDouble(pa6),
                         Double.parseDouble(pa7),

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -97,6 +98,12 @@ public class Module2 extends Fragment {
                 String pa5 = ((EditText) view.findViewById(R.id.txtPa5)).getText().toString();
 
                 String ef = ((EditText) view.findViewById(R.id.txtExamenFinal)).getText().toString();
+
+
+                if (pa4.equalsIgnoreCase("")  || pa5.equalsIgnoreCase("") || ef.equalsIgnoreCase("")) {
+                    Toast.makeText(requireContext(), "Uno o más campos vacios", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 prom2 = calcularPromedioUnidad2(
                         Double.parseDouble(pa4),

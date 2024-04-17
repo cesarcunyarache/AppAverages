@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.widget.EditText;
-
+import android.widget.Toast;
 import android.widget.TextView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -80,6 +80,10 @@ public class Modulo1 extends Fragment {
                 String pa2 = ((EditText) view.findViewById(R.id.txtPa7)).getText().toString();
                 String ep = ((EditText) view.findViewById(R.id.txtExamenParcialIII)).getText().toString();
 
+                if (pa1.equalsIgnoreCase("")  || pa2.equalsIgnoreCase("") || ep.equalsIgnoreCase("")) {
+                    Toast.makeText(requireContext(), "Uno o más campos vacios", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 double result = calcularPromedioUnidad1(
                         Double.parseDouble(pa1),
                         Double.parseDouble(pa2),
